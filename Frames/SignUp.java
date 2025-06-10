@@ -29,7 +29,7 @@ public class SignUp extends JFrame implements ActionListener {
         mycolor1 = new Color(245, 249, 255);
         lblcolor1 = new Color(0, 0, 255);
 
-        mfont1 = new Font("Roboto", Font.BOLD, 15);
+        mfont1 = new Font("Roboto", Font.BOLD, 13);
         mfont2 = new Font("Roboto", Font.BOLD, 28);
         mfont3 = new Font("Roboto", Font.BOLD, 12);
         leftPanel = new JPanel();
@@ -185,19 +185,38 @@ public class SignUp extends JFrame implements ActionListener {
         backBtn.addActionListener(this);
         rightPanel.add(backBtn);
 
-        this.setResizable(false);
+        this.setResizable(true);
         this.add(leftPanel);
         this.add(rightPanel);
     }
 
     public void actionPerformed(ActionEvent ae) {
+        String name = nameField.getText();
+        String contact = contactField.getText();
+        String address = addressField.getText();
+        String varsity = varsityField.getText();
+        String dob = dobfld.getText();
+        String gName = gNameField.getText();
+        String gContact = gContactField.getText();
+        
         if (ae.getSource() == backBtn) {
             this.setVisible(false);
             new SignIn().setVisible(true);
         } else if (ae.getSource() == registerBtn) {
-            String name = nameField.getText().trim();
-            String contact = contactField.getText().trim();
-            String
+            if(name.isEmpty() || contact.isEmpty() || address.isEmpty() || varsity.isEmpty() || dob.isEmpty() || gName.isEmpty() || gContact.isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Please fill up all!");
+            }
+            else
+            {
+                Data d2 = new Data(nameField, contactField, addressField, varsityField, dobfld, gNameField, gContactField);
+                d2.addData();
+                JOptionPane.showMessageDialog(null, "Registration is successfull");
+                this.setVisible(false);
+                new SignIn().setVisible(true);
+            }
         }
     }
+
+
 }

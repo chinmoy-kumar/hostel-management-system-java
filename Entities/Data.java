@@ -28,6 +28,8 @@ public class Data
 		this.upass=upass;
 	}
 	
+	public Data(String uname){}
+
 	public void setUserName(String uname)
 	{
 		this.uname=uname;
@@ -83,13 +85,14 @@ public class Data
 				String[] value=line.split("\t");
 				if (value.length >= 2 && value[0].equals(username) && value[1].equals(userpass)) {
 
-				//if(value[0].equals(username)&&value[1].equals(userpass))
+				if(value[0].equals(username)&&value[1].equals(userpass))
 				{
 					flag=true;
 				}
 			}
 			
-		}}
+		}
+	}
 		catch(IOException ioe)
 		{
 			ioe.printStackTrace();

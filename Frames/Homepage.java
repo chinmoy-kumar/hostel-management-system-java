@@ -6,10 +6,10 @@ import java.lang.*;
 import javax.swing.*;
 
 public class Homepage extends JFrame implements ActionListener{
-    JLabel user, HostelName;
+    JLabel user, HostelName, choose;
     JPanel topPanel, bottomPanel;
-    JButton logOutBtn, editBtn;
-    ImageIcon logOutIcon, editProfileIcon;
+    JButton logOutBtn, editBtn, addBookingBtn, deleteBookingBtn, updateBookingBtn, showDetailsBtn;
+    ImageIcon logOutIcon, editProfileIcon, addBookingIcon, deleteIcon, updateBookingIcon, showDetailsIcon;
     Color color1, color2;
 
     public Homepage(String userName) {
@@ -56,14 +56,61 @@ public class Homepage extends JFrame implements ActionListener{
         bottomPanel.add(user);
         
         editProfileIcon = new ImageIcon("./Images/editProfileIcon.png");
-        editBtn = new JButton("Edit Profile", editProfileIcon);
+        editBtn = new JButton("Update Profile", editProfileIcon);
         editBtn.setLayout(null);
-        editBtn.setBounds(630, 100, 130, 40);
+        editBtn.setBounds(620, 100, 150, 40);
         editBtn.setForeground(color2);
         editBtn.setBackground(color1);
         editBtn.setFont(new Font("Roboto", Font.BOLD, 13));
         editBtn.setFocusPainted(false);
         bottomPanel.add(editBtn);
+
+        choose = new JLabel("Choose any option");
+        choose.setBounds(300, 170, 300, 50);
+        choose.setFont(new Font("Roboto", Font.BOLD, 20));
+        choose.setForeground(color1);
+        bottomPanel.add(choose);
+
+        addBookingIcon = new ImageIcon("./Images/addIcon.png");
+        addBookingBtn = new JButton("New Booking", addBookingIcon);
+        addBookingBtn.setLayout(null);
+        addBookingBtn.setBounds(150, 250, 200, 60);
+        addBookingBtn.setForeground(color2);
+        addBookingBtn.setBackground(color1);
+        addBookingBtn.setFocusPainted(false);
+        addBookingBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        bottomPanel.add(addBookingBtn);        
+
+        deleteIcon = new ImageIcon("./Images/deleteIcon.png");
+        deleteBookingBtn = new JButton("Delete Booking", deleteIcon);
+        deleteBookingBtn.setLayout(null);
+        deleteBookingBtn.setBounds(150, 350, 200, 60);
+        deleteBookingBtn.setForeground(color2);
+        deleteBookingBtn.setBackground(color1);
+        deleteBookingBtn.setFocusPainted(false);
+        deleteBookingBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        bottomPanel.add(deleteBookingBtn);
+
+        updateBookingIcon = new ImageIcon("./Images/updatedBookingIcon.png");
+        updateBookingBtn = new JButton("Update Booking", updateBookingIcon);
+        updateBookingBtn.setLayout(null);
+        updateBookingBtn.setBounds(450, 250, 200, 60);
+        updateBookingBtn.setForeground(color2);
+        updateBookingBtn.setBackground(color1);
+        updateBookingBtn.setFocusPainted(false);
+        updateBookingBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        bottomPanel.add(updateBookingBtn);
+
+        showDetailsIcon = new ImageIcon("./Images/detailsIcon.png");
+        showDetailsBtn = new JButton("Booking Details", showDetailsIcon);
+        showDetailsBtn.setLayout(null);
+        showDetailsBtn.setBounds(450, 350, 200, 60);
+        showDetailsBtn.setForeground(color2);
+        showDetailsBtn.setBackground(color1);
+        showDetailsBtn.setFocusPainted(false);
+        showDetailsBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        bottomPanel.add(showDetailsBtn);
+
 
         this.add(topPanel);
         this.add(bottomPanel);

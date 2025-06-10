@@ -168,10 +168,12 @@ public class SignIn extends JFrame implements MouseListener, ActionListener {
 		if (me.getSource() == signInbtn) {
 			signInbtn.setBackground(new Color(58, 122, 204));
 			signInbtn.setForeground(Color.WHITE);
-		} else if (me.getSource() == signUpbtn) {
+		} 
+		else if (me.getSource() == signUpbtn) {
 			signUpbtn.setBackground(new Color(46, 186, 136));
 			signUpbtn.setForeground(Color.WHITE);
-		} else if (me.getSource() == exitbtn) {
+		} 
+		else if (me.getSource() == exitbtn) {
 			exitbtn.setBackground(new Color(244, 114, 118));
 			exitbtn.setForeground(Color.WHITE);
 		}
@@ -186,7 +188,8 @@ public class SignIn extends JFrame implements MouseListener, ActionListener {
 			if (uname.equals("") || upass.equals("")) {
 
 				JOptionPane.showMessageDialog(this, "Please enter username and password");
-			} else {
+			} 
+			else {
 				Data d1 = new Data();
 				if (d1.getData(uname, upass) == true) {
 					this.setVisible(false);
@@ -201,11 +204,20 @@ public class SignIn extends JFrame implements MouseListener, ActionListener {
 		else if (ae.getSource() == signUpbtn) {
 			this.setVisible(false);
 			SignUp r1 = new SignUp();
-			r1.setVisible(true);
+			r1.setVisible(false);
 		} 
 		else if (ae.getSource() == exitbtn) {
 			this.setVisible(false);
 		} 
+		if (passfld.getEchoChar() == '\u0000')
+		{
+        	passfld.setEchoChar('*');
+        	eyeBtn.setIcon(hideIcon);
+    	}
+		else {
+        	passfld.setEchoChar('\u0000');
+       		eyeBtn.setIcon(showIcon);
+    	}
 
 	}
 
