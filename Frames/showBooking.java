@@ -2,11 +2,9 @@ package Frames;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.*;
-import java.util.*;
-import javax.swing.*;
 import java.io.*;
-import Entities.*;
+import java.lang.*;
+import javax.swing.*;
 
 public class showBooking extends JFrame implements ActionListener {
     String userName, line;
@@ -48,22 +46,32 @@ public class showBooking extends JFrame implements ActionListener {
         backBtn.addActionListener(this);
         panel.add(backBtn);
 
-
         panel.setVisible(true);
         this.add(panel);
 
     }
 
     public void loadUserBookings() {
-        bookingFile = new File("./Booking.txt");
+        bookingFile = new File("Booking.txt");
+
         if (bookingFile.exists() && bookingFile.canRead()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(bookingFile))) {
+                int lineNum = 1;
                 userBookings = new StringBuilder();
+
                 while ((line = reader.readLine()) != null) {
-                    bookingDetails = line.split(";");
-                    if (bookingDetails.length >= 3 && bookingDetails[0].equals(userName)) {
-                        userBookings.append("Room: ").append(bookingDetails[1]).append("| Facilities: ")
-                                .append(bookingDetails[2]).append("\n");
+                    if (line.contains(":")) {
+                        bookingDetails = line.split(":");
+                    }
+
+                    if (bookingDetails.length >= 1) {
+                        String[] bookingInfo = bookingDetails[1].split(";");
+
+                        if (bookingInfo.length > 0 && bookingInfo[0].equals(userName)) {
+                            userBookings.append("Booking ").append(lineNum).append(". ").append("Room: ").append(bookingDetails[1])
+                                    .append("| Facilities: ").append("\n");
+                            lineNum++;
+                        }
                     }
 
                 }
@@ -81,10 +89,8 @@ public class showBooking extends JFrame implements ActionListener {
 
     }
 
-    public void actionPerformed(ActionEvent ae)
-    {
-        if(ae.getSource() == backBtn)
-        {
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == backBtn) {
             this.setVisible(false);
             new Homepage(userName).setVisible(true);
         }

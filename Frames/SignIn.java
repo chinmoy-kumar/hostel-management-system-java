@@ -204,7 +204,7 @@ public class SignIn extends JFrame implements MouseListener, ActionListener {
 		else if (ae.getSource() == signUpbtn) {
 			this.setVisible(false);
 			SignUp r1 = new SignUp();
-			r1.setVisible(false);
+			r1.setVisible(true);
 		} 
 		else if (ae.getSource() == exitbtn) {
 			this.setVisible(false);

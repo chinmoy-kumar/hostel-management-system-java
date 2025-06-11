@@ -4,16 +4,17 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
 import javax.swing.*;
+import Entities.*;
 
 public class SignUp extends JFrame implements ActionListener {
     JLabel namelbl, passlbl, imagelbl, titleLbl, contactlbl, addresslbl, varsitylbl, doblbl, gNamelbl, gContactlbl,
-            genderlbl, bloodlbl;
+            genderlbl, bloodlbl, userIconLbl;
     JTextField nameField, contactField, addressField, varsityField, dobfld, gNameField, gContactField;
     JPasswordField passwordField;
-    JButton registerBtn, backBtn;
+    JButton registerBtn, backBtn, eyeBtn;
     Color mycolor1, lblcolor1;
     Font mfont1, mfont2, mfont3;
-    ImageIcon img3;
+    ImageIcon img3,showIcon, hideIcon;
     JRadioButton r1, r2;
     JComboBox combo;
     JPanel leftPanel, rightPanel;
@@ -146,6 +147,19 @@ public class SignUp extends JFrame implements ActionListener {
         passwordField.setFont(mfont1);
         passwordField.setEchoChar('*');
         rightPanel.add(passwordField);
+		
+		
+		showIcon = new ImageIcon("./Images/icon3.png");
+		hideIcon = new ImageIcon("./Images/icon2.png");
+
+		
+		eyeBtn = new JButton(hideIcon);
+		eyeBtn.setBounds(360, 340, 20, 30);
+		eyeBtn.setFocusable(false);
+		eyeBtn.setBorder(null);
+		eyeBtn.setBackground(Color.GRAY);
+		eyeBtn.addActionListener(this);
+		rightPanel.add(eyeBtn);
 
         gNamelbl = new JLabel("Guardian Name:");
         gNamelbl.setBounds(30, 380, 120, 30);
@@ -191,31 +205,53 @@ public class SignUp extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        String name = nameField.getText();
+        String uname = nameField.getText();
+		String upass =passwordField.getText();
         String contact = contactField.getText();
         String address = addressField.getText();
         String varsity = varsityField.getText();
         String dob = dobfld.getText();
-        String gName = gNameField.getText();
-        String gContact = gContactField.getText();
-        
+        String gname = gNameField.getText();
+        String gcontact = gContactField.getText();
+		String blood = (String )combo.getSelectedItem();
+        String gender  = " ";
+        if (r1.isSelected()){
+	      gender= "Male";
+	     }
+		else if (r2.isSelected()) 
+		{ 
+		gender =" Female"; 
+		}
+		
         if (ae.getSource() == backBtn) {
             this.setVisible(false);
             new SignIn().setVisible(true);
         } else if (ae.getSource() == registerBtn) {
-            if(name.isEmpty() || contact.isEmpty() || address.isEmpty() || varsity.isEmpty() || dob.isEmpty() || gName.isEmpty() || gContact.isEmpty())
+            if(uname.isEmpty()|| upass.isEmpty() || contact.isEmpty() || address.isEmpty() 
+				|| varsity.isEmpty() || dob.isEmpty()|| blood.isEmpty()
+                || gender.isEmpty() || gname.isEmpty() || gcontact.isEmpty())
             {
                 JOptionPane.showMessageDialog(null, "Please fill up all!");
             }
             else
             {
-                Data d2 = new Data(nameField, contactField, addressField, varsityField, dobfld, gNameField, gContactField);
-                d2.addData();
+                Data d1 = new Data(uname, upass, dob, gender, blood, contact, address, varsity, gname, gcontact);
+                d1.addLoginData();
+				d1.addFullRegData();
                 JOptionPane.showMessageDialog(null, "Registration is successfull");
                 this.setVisible(false);
                 new SignIn().setVisible(true);
             }
         }
+		if (passwordField.getEchoChar() == '\u0000')
+		{
+        	passwordField.setEchoChar('*');
+        	eyeBtn.setIcon(hideIcon);
+    	}
+		else {
+        	passwordField.setEchoChar('\u0000');
+       		eyeBtn.setIcon(showIcon);
+    	}
     }
 
 

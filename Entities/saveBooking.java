@@ -1,17 +1,14 @@
 package Entities;
 
-import java.lang.*;
-import java.util.*;
 import java.io.*;
-import Frames.*;
+import java.lang.*;
 
 
 public class saveBooking {
-    String bookingData;
-
-    File myFile;
+    String bookingData, lastLine, currentLine, bookingNumberPart, formattedbookingData;
+    File myFile, myFile2;
     FileWriter fwrite;
-    Scanner sc;
+    static int bookingCounter = 1;
 
     public saveBooking()
     {
@@ -26,15 +23,53 @@ public class saveBooking {
         return bookingData;
     }
 
+
+    public void updatebookingCounter()
+    {
+        myFile2 = new File("Booking.txt");
+
+        if(myFile2.exists())
+        {
+            try(BufferedReader reader = new BufferedReader(new FileReader(myFile2)))
+            {
+                lastLine = "";
+                while((currentLine = reader.readLine()) != null)
+                {
+                    lastLine = currentLine;
+                }
+
+                if(lastLine != null && lastLine.startsWith("Booking"))
+                {
+                    String[] parts = lastLine.split(":");
+                    if(parts.length > 1)
+                    {
+                        bookingNumberPart = parts[0].trim();
+                        String[] bookingNumber = bookingNumberPart.split(" ");
+                        bookingCounter = Integer.parseInt(bookingNumber[1]) + 1;
+                    }
+                }
+            }
+            catch(IOException ioe)
+            {
+                ioe.printStackTrace();
+            }
+        }
+
+    }
+
+
     public void saveBookingInfo()
     {
+        updatebookingCounter();
+
         try{
-            System.out.println("Saving booking: " + getBookingData()); 
             myFile = new File("Booking.txt");
             myFile.createNewFile();
             fwrite = new FileWriter(myFile, true);
 
-            fwrite.write(getBookingData()+"\n");
+            formattedbookingData = "Booking " + bookingCounter + ":" + getBookingData();
+
+            fwrite.write(formattedbookingData +"\n");
 
             fwrite.flush();
             fwrite.close();

@@ -1,6 +1,6 @@
 package Frames;
 
-import Entities.*;
+import Entities.saveBooking;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class BookingForm extends JFrame implements ActionListener
 {
-    String userName;
+    String userName, facilitiesStr;
     JPanel panel;
     JRadioButton singleRoom, doubleRoom;
     JCheckBox wifiBox, acBox, fridgeBox;
@@ -125,12 +125,12 @@ public class BookingForm extends JFrame implements ActionListener
             {
                 facilities.add("Fridge");
             }
-            
-            String facilitiesStr = String.join(", ", facilities);
-            
-            String bookingData = userName + ";" + roomType + ";" + facilitiesStr;
 
-            saveBooking sb = new saveBooking(bookingData);
+            facilitiesStr = String.join(", ", facilities).trim();
+            
+            String bookingDetails = userName + ";" + roomType + ";" + facilitiesStr;
+
+            saveBooking sb = new saveBooking(bookingDetails);
             sb.saveBookingInfo();
 
             JOptionPane.showMessageDialog(this, "Booking Successful!");
