@@ -4,8 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
 import javax.swing.*;
+import java.io.*;
 
 public class Homepage extends JFrame implements ActionListener{
+    String userName;
     JLabel user, HostelName, choose;
     JPanel topPanel, bottomPanel;
     JButton logOutBtn, editBtn, addBookingBtn, deleteBookingBtn, updateBookingBtn, showDetailsBtn;
@@ -14,8 +16,10 @@ public class Homepage extends JFrame implements ActionListener{
 
     public Homepage(String userName) {
         super("User Dashboard");
+        this.userName = userName;
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon("./Images/icon.png").getImage());
 
         color1 = new Color(7, 39, 90);
         color2 = new Color(210, 237, 255);
@@ -79,6 +83,7 @@ public class Homepage extends JFrame implements ActionListener{
         addBookingBtn.setBackground(color1);
         addBookingBtn.setFocusPainted(false);
         addBookingBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        addBookingBtn.addActionListener(this);
         bottomPanel.add(addBookingBtn);        
 
         deleteIcon = new ImageIcon("./Images/deleteIcon.png");
@@ -109,6 +114,7 @@ public class Homepage extends JFrame implements ActionListener{
         showDetailsBtn.setBackground(color1);
         showDetailsBtn.setFocusPainted(false);
         showDetailsBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        showDetailsBtn.addActionListener(this);
         bottomPanel.add(showDetailsBtn);
 
 
@@ -122,6 +128,24 @@ public class Homepage extends JFrame implements ActionListener{
         {
             this.setVisible(false);
             new SignIn().setVisible(true);
+        }
+        else if(ae.getSource() == addBookingBtn)
+        {
+            this.setVisible(false);
+            new BookingForm(userName).setVisible(true);
+        }
+        else if(ae.getSource() == updateBookingBtn)
+        {
+
+        }
+        else if(ae.getSource() == deleteBookingBtn)
+        {
+
+        }
+        if(ae.getSource() == showDetailsBtn)
+        {
+            this.setVisible(false);
+            new showBooking(userName).setVisible(true);
         }
     }
 
