@@ -44,14 +44,17 @@ public class BookingForm extends JFrame implements ActionListener
         panel.add(title);
 
         JLabel roomLabel = new JLabel("Choose Room Type");
-        roomLabel.setBounds(30, 50, 150, 25);
+        roomLabel.setBounds(290, 80, 180, 25);
+        roomLabel.setFont(new Font("Roboto", Font.BOLD, 18));
         panel.add(roomLabel);
 
         singleRoom = new JRadioButton("Single Room");
-        singleRoom.setBounds(180, 50, 120, 25);
+        singleRoom.setBounds(360, 120, 120, 25);
+        singleRoom.setFont(new Font("Roboto", Font.PLAIN, 15));
         singleRoom.setBackground(color2);
         doubleRoom = new JRadioButton("Double Room");
-        doubleRoom.setBounds(180, 80, 120, 25);
+        doubleRoom.setBounds(360, 150, 120, 25);
+        doubleRoom.setFont(new Font("Roboto", Font.PLAIN, 15));        
         doubleRoom.setBackground(color2);
 
         roomGroup = new ButtonGroup();
@@ -62,17 +65,21 @@ public class BookingForm extends JFrame implements ActionListener
         panel.add(doubleRoom);
 
         JLabel facilitiesLabel = new JLabel("Facilities (choose any)");
-        facilitiesLabel.setBounds(30, 120, 150, 25);
+        facilitiesLabel.setBounds(290, 190, 200, 25);
+        facilitiesLabel.setFont(new Font("Roboto", Font.BOLD, 18));        
         panel.add(facilitiesLabel);
 
         wifiBox = new JCheckBox("Wi-Fi");
-        wifiBox.setBounds(180, 120, 100, 25);
+        wifiBox.setBounds(360, 220, 100, 25);
+        wifiBox.setFont(new Font("Roboto", Font.PLAIN, 15));
         wifiBox.setBackground(color2);
         acBox = new JCheckBox("AC");
-        acBox.setBounds(180, 150, 100, 25);
+        acBox.setBounds(360, 250, 100, 25);
+        acBox.setFont(new Font("Roboto", Font.PLAIN, 15));
         acBox.setBackground(color2);
         fridgeBox = new JCheckBox("Fridge");
-        fridgeBox.setBounds(180, 180, 100, 25);
+        fridgeBox.setBounds(360, 280, 100, 25);
+        fridgeBox.setFont(new Font("Roboto", Font.PLAIN, 15));
         fridgeBox.setBackground(color2);
 
         panel.add(wifiBox);
@@ -80,12 +87,18 @@ public class BookingForm extends JFrame implements ActionListener
         panel.add(fridgeBox);
 
         bookNowBtn = new JButton("Book Now!");
-        bookNowBtn.setBounds(70, 230, 100, 30);
+        bookNowBtn.setBounds(250, 340, 150,  40);
+        bookNowBtn.setBackground(new Color(46, 186, 136));
+        bookNowBtn.setFont(new Font("Roboto", Font.BOLD, 15));
+        bookNowBtn.setForeground(Color.WHITE);
         bookNowBtn.addActionListener(this);
         panel.add(bookNowBtn);
 
         backBtn = new JButton("Back");
-        backBtn.setBounds(210, 230, 100, 30);
+        backBtn.setBounds(420, 340, 150, 40);
+        backBtn.setBackground(new Color(244, 114, 118));
+        backBtn.setFont(new Font("Roboto", Font.BOLD, 15));
+        backBtn.setForeground(Color.WHITE);
         backBtn.addActionListener(this);
         panel.add(backBtn);
 
