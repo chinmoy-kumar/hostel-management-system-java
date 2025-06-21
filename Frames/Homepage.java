@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
 import javax.swing.*;
-import java.io.*;
 
 public class Homepage extends JFrame implements ActionListener{
     String userName;
@@ -140,7 +139,8 @@ public class Homepage extends JFrame implements ActionListener{
         }
         else if(ae.getSource() == deleteBookingBtn)
         {
-
+            this.setVisible(false);
+            new DeleteBooking(userName).setVisible(true);
         }
         if(ae.getSource() == showDetailsBtn)
         {
