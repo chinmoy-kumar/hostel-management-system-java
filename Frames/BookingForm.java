@@ -11,6 +11,7 @@ public class BookingForm extends JFrame implements ActionListener
 {
     String userName, facilitiesStr;
     JPanel panel;
+    JLabel title, roomLabel, facilitiesLabel;
     JRadioButton singleRoom, doubleRoom;
     JCheckBox wifiBox, acBox, fridgeBox;
     JButton bookNowBtn, backBtn;
@@ -37,13 +38,13 @@ public class BookingForm extends JFrame implements ActionListener
         panel.setBackground(color2);
         panel.setSize(800, 600);
 
-        JLabel title = new JLabel("Room Booking");
+        title = new JLabel("Room Booking");
         title.setBounds(280, 20, 250, 50);
         title.setFont(new Font("Roboto", Font.BOLD, 32));
         title.setForeground(color1);
         panel.add(title);
 
-        JLabel roomLabel = new JLabel("Choose Room Type");
+        roomLabel = new JLabel("Choose Room Type");
         roomLabel.setBounds(290, 80, 180, 25);
         roomLabel.setFont(new Font("Roboto", Font.BOLD, 18));
         panel.add(roomLabel);
@@ -64,7 +65,7 @@ public class BookingForm extends JFrame implements ActionListener
         panel.add(singleRoom);
         panel.add(doubleRoom);
 
-        JLabel facilitiesLabel = new JLabel("Facilities (choose any)");
+        facilitiesLabel = new JLabel("Facilities (choose any)");
         facilitiesLabel.setBounds(290, 190, 200, 25);
         facilitiesLabel.setFont(new Font("Roboto", Font.BOLD, 18));        
         panel.add(facilitiesLabel);

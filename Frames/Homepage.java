@@ -93,6 +93,7 @@ public class Homepage extends JFrame implements ActionListener{
         deleteBookingBtn.setBackground(color1);
         deleteBookingBtn.setFocusPainted(false);
         deleteBookingBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        deleteBookingBtn.addActionListener(this);
         bottomPanel.add(deleteBookingBtn);
 
         updateBookingIcon = new ImageIcon("./Images/updatedBookingIcon.png");

@@ -3,3 +3,4 @@ Booking 7:demo;Double Room;Wi-Fi, AC
 Booking 8:demo;Single Room;Wi-Fi
 Booking 9:Chinmoy Kumar;Single Room;Wi-Fi, AC
 Booking 10:demoUser;Single Room;Wi-Fi, AC
+Booking 11:demo;Double Room;Wi-Fi, AC

@@ -68,8 +68,7 @@ public class showBooking extends JFrame implements ActionListener {
                         String[] bookingInfo = bookingDetails[1].split(";");
 
                         if (bookingInfo.length > 0 && bookingInfo[0].equals(userName)) {
-                            userBookings.append("Booking ").append(lineNum).append(". ").append("Room: ").append(bookingDetails[1])
-                                    .append("| Facilities: ").append("\n");
+                            userBookings.append("Booking ").append(lineNum).append(". ").append(bookingDetails[1]).append("Room: ").append("\n");
                             lineNum++;
                         }
                     }
