@@ -1,9 +1,9 @@
 # hostel-management-system-java
 
-A simple desktop-based hostel management system built with Java Swing, designed to manage hostel room bookings, student records, and overall administration efficiently.
+A simple desktop-based hostel management system built with Java Swing, designed to manage hostel room bookings, records, and overall administration efficiently.
 
 ## Features<br>
-Add, update, and delete student/room booking details
+Add, update, delete and booking details
 
 GUI-based interface using Java Swing
 
