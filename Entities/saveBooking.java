@@ -63,7 +63,7 @@ public class saveBooking {
         updatebookingCounter();
 
         try{
-            myFile = new File("Booking.txt");
+            myFile = new File("./Data/Booking.txt");
             myFile.createNewFile();
             fwrite = new FileWriter(myFile, true);
 
