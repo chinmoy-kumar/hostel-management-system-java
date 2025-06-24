@@ -10,8 +10,8 @@ public class deleteBooking {
     };
 
     public deleteBooking(String bookingNum) {
-        File dataFile = new File("Booking.txt");
-        File tempFile = new File("data_temp.txt");
+        File dataFile = new File("./Data/Booking.txt");
+        File tempFile = new File("./Data/data_temp.txt");
         boolean found = false;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(dataFile));

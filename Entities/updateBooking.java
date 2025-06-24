@@ -9,8 +9,8 @@ public class updateBooking {
 
     public updateBooking(String bookingDetails, String userName) {
         try {
-            File f1 = new File("Booking.txt");
-            File tempF1 = new File("temp_booking.txt");
+            File f1 = new File("./Data/Booking.txt");
+            File tempF1 = new File("./Data/temp_booking.txt");
 
             Scanner sc = new Scanner(f1);
             PrintWriter fw = new PrintWriter(new FileWriter(tempF1));

@@ -26,7 +26,7 @@ public class saveBooking {
 
     public void updatebookingCounter()
     {
-        myFile2 = new File("Booking.txt");
+        myFile2 = new File("./Data/Booking.txt");
 
         if(myFile2.exists())
         {

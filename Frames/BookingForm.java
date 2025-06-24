@@ -120,7 +120,7 @@ public class BookingForm extends JFrame implements ActionListener {
 
     public void loadExistingBooking() {
         try {
-            File f1 = new File("Booking.txt");
+            File f1 = new File("./Data/Booking.txt");
             Scanner sc = new Scanner(f1);
 
             while (sc.hasNextLine()) {

@@ -151,7 +151,7 @@ public class Data
 	{
 		try
 		{
-			myfile=new File("./Data.txt");
+			myfile=new File("./Data/Data.txt");
 			myfile.createNewFile();
 			fwrite=new FileWriter(myfile,true);
 			
@@ -171,7 +171,7 @@ public class Data
 	{
 		try
 		{
-			myfile2=new File("./regsData.txt");
+			myfile2=new File("./Data/regsData.txt");
 			myfile2.createNewFile();
 			fwrite2=new FileWriter(myfile2,true);
 			
@@ -202,7 +202,7 @@ public class Data
 		boolean flag=false;
 		try
 		{
-			myfile=new File("./Data.txt");
+			myfile=new File("./Data/Data.txt");
 			sc=new Scanner(myfile);
 			
 			while(sc.hasNextLine())

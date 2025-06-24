@@ -54,7 +54,7 @@ public class showBooking extends JFrame implements ActionListener {
     }
 
     public void loadUserBookings() {
-        bookingFile = new File("Booking.txt");
+        bookingFile = new File("./Data/Booking.txt");
 
         boolean flag = true;
         if (bookingFile.exists() && bookingFile.canRead()) {
