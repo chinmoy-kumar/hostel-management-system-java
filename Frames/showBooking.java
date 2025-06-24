@@ -63,8 +63,12 @@ public class showBooking extends JFrame implements ActionListener {
                     if (line.contains(":")) {
                         bookingDetails = line.split(":");
                     }
+                    else
+                    {
+                        bookingDetails = null;
+                    }
 
-                    if (bookingDetails.length >= 1) {
+                    if (bookingDetails != null && bookingDetails.length >= 1) {
                         String[] bookingInfo = bookingDetails[1].split(";");
 
                         if (bookingInfo.length > 0 && bookingInfo[0].equals(userName)) {

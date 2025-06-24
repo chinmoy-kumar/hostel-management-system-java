@@ -10,8 +10,12 @@ public class bookingCounter {
         File file = new File("Booking.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            while (reader.readLine() != null) {
-                lineCnt++;
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if(line.startsWith("Booking "))
+                {
+                    lineCnt++;
+                }
             }
 
         } 

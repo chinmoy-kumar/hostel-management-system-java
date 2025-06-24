@@ -5,12 +5,14 @@ import java.awt.event.*;
 import java.lang.*;
 import javax.swing.*;
 
+import Entities.bookingCounter;
+
 public class Homepage extends JFrame implements ActionListener{
     String userName;
-    JLabel user, HostelName, choose;
+    JLabel user, HostelName, choose, BookingCounterLbl;
     JPanel topPanel, bottomPanel;
     JButton logOutBtn, editBtn, addBookingBtn, deleteBookingBtn, updateBookingBtn, showDetailsBtn;
-    ImageIcon logOutIcon, editProfileIcon, addBookingIcon, deleteIcon, updateBookingIcon, showDetailsIcon;
+    ImageIcon logOutIcon, addBookingIcon, deleteIcon, updateBookingIcon, showDetailsIcon;
     Color color1, color2;
 
     public Homepage(String userName) {
@@ -58,15 +60,17 @@ public class Homepage extends JFrame implements ActionListener{
         user.setForeground(color1);
         bottomPanel.add(user);
         
-        editProfileIcon = new ImageIcon("./Images/editProfileIcon.png");
-        editBtn = new JButton("Update Profile", editProfileIcon);
-        editBtn.setLayout(null);
-        editBtn.setBounds(620, 100, 150, 40);
-        editBtn.setForeground(color2);
-        editBtn.setBackground(color1);
-        editBtn.setFont(new Font("Roboto", Font.BOLD, 13));
-        editBtn.setFocusPainted(false);
-        bottomPanel.add(editBtn);
+        bookingCounter bkc = new bookingCounter();
+        int bookingCnt = bkc.countLine();
+        BookingCounterLbl = new JLabel("Booked Rooms: " + bookingCnt);
+        BookingCounterLbl.setLayout(null);
+        BookingCounterLbl.setOpaque(true);
+        BookingCounterLbl.setBounds(620, 100, 150, 40);
+        BookingCounterLbl.setHorizontalAlignment(SwingConstants.CENTER);
+        BookingCounterLbl.setForeground(Color.WHITE);
+        BookingCounterLbl.setBackground(new Color(253, 156, 63));
+        BookingCounterLbl.setFont(new Font("Roboto", Font.BOLD, 15));
+        bottomPanel.add(BookingCounterLbl);
 
         choose = new JLabel("Choose any option");
         choose.setBounds(300, 170, 300, 50);
@@ -143,7 +147,7 @@ public class Homepage extends JFrame implements ActionListener{
             this.setVisible(false);
             new DeleteBooking(userName).setVisible(true);
         }
-        if(ae.getSource() == showDetailsBtn)
+        else if(ae.getSource() == showDetailsBtn)
         {
             this.setVisible(false);
             new showBooking(userName).setVisible(true);
