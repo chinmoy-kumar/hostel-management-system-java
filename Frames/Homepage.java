@@ -81,7 +81,7 @@ public class Homepage extends JFrame implements ActionListener{
         addBookingIcon = new ImageIcon("./Images/addIcon.png");
         addBookingBtn = new JButton("New Booking", addBookingIcon);
         addBookingBtn.setLayout(null);
-        addBookingBtn.setBounds(150, 250, 200, 60);
+        addBookingBtn.setBounds(150, 250, 220, 60);
         addBookingBtn.setForeground(color2);
         addBookingBtn.setBackground(color1);
         addBookingBtn.setFocusPainted(false);
@@ -92,7 +92,7 @@ public class Homepage extends JFrame implements ActionListener{
         deleteIcon = new ImageIcon("./Images/deleteIcon.png");
         deleteBookingBtn = new JButton("Delete Booking", deleteIcon);
         deleteBookingBtn.setLayout(null);
-        deleteBookingBtn.setBounds(150, 350, 200, 60);
+        deleteBookingBtn.setBounds(150, 350, 220, 60);
         deleteBookingBtn.setForeground(color2);
         deleteBookingBtn.setBackground(color1);
         deleteBookingBtn.setFocusPainted(false);
@@ -103,17 +103,18 @@ public class Homepage extends JFrame implements ActionListener{
         updateBookingIcon = new ImageIcon("./Images/updatedBookingIcon.png");
         updateBookingBtn = new JButton("Update Booking", updateBookingIcon);
         updateBookingBtn.setLayout(null);
-        updateBookingBtn.setBounds(450, 250, 200, 60);
+        updateBookingBtn.setBounds(450, 250, 220, 60);
         updateBookingBtn.setForeground(color2);
         updateBookingBtn.setBackground(color1);
         updateBookingBtn.setFocusPainted(false);
         updateBookingBtn.setFont(new Font("Roboto", Font.BOLD, 18));
+        updateBookingBtn.addActionListener(this);
         bottomPanel.add(updateBookingBtn);
 
         showDetailsIcon = new ImageIcon("./Images/detailsIcon.png");
         showDetailsBtn = new JButton("Booking Details", showDetailsIcon);
         showDetailsBtn.setLayout(null);
-        showDetailsBtn.setBounds(450, 350, 200, 60);
+        showDetailsBtn.setBounds(450, 350, 220, 60);
         showDetailsBtn.setForeground(color2);
         showDetailsBtn.setBackground(color1);
         showDetailsBtn.setFocusPainted(false);
@@ -124,6 +125,7 @@ public class Homepage extends JFrame implements ActionListener{
 
         this.add(topPanel);
         this.add(bottomPanel);
+        this.setResizable(false);
     }
 
     public void actionPerformed(ActionEvent ae)
@@ -140,7 +142,8 @@ public class Homepage extends JFrame implements ActionListener{
         }
         else if(ae.getSource() == updateBookingBtn)
         {
-
+            this.setVisible(false);
+            new BookingForm(userName, true).setVisible(true);
         }
         else if(ae.getSource() == deleteBookingBtn)
         {

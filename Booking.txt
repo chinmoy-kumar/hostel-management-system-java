@@ -1,3 +1,0 @@
-Booking 1:demo;Single Room;Wi-Fi, AC
-Booking 2:demo;Double Room;Wi-Fi, AC
-Booking 3:demo;Double Room;Wi-Fi

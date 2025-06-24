@@ -6,6 +6,8 @@ import java.io.*;
 import java.lang.*;
 import javax.swing.*;
 
+import Entities.updateBooking;
+
 public class showBooking extends JFrame implements ActionListener {
     String userName, line;
     JPanel panel;
@@ -48,12 +50,13 @@ public class showBooking extends JFrame implements ActionListener {
 
         panel.setVisible(true);
         this.add(panel);
-
+        this.setResizable(false);
     }
 
     public void loadUserBookings() {
         bookingFile = new File("Booking.txt");
 
+        boolean flag = true;
         if (bookingFile.exists() && bookingFile.canRead()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(bookingFile))) {
                 int lineNum = 1;
@@ -72,11 +75,10 @@ public class showBooking extends JFrame implements ActionListener {
                         String[] bookingInfo = bookingDetails[1].split(";");
 
                         if (bookingInfo.length > 0 && bookingInfo[0].equals(userName)) {
-                            userBookings.append("Booking ").append(lineNum).append(": ").append(bookingDetails[1]+ " ").append("Room: ").append("\n");
+                            userBookings.append(bookingDetails[0]).append(": ").append(bookingDetails[1]+ " ").append("\n");
                             lineNum++;
                         }
                     }
-
                 }
                 if (userBookings.length() > 0) {
                     bookingShowWindow.setText(userBookings.toString());
@@ -88,7 +90,10 @@ public class showBooking extends JFrame implements ActionListener {
             }
         } else {
             bookingShowWindow.setText("No Booking Found!");
+            flag = false;
+            
         }
+        
 
     }
 

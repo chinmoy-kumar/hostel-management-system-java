@@ -199,7 +199,7 @@ public class SignUp extends JFrame implements ActionListener {
         backBtn.addActionListener(this);
         rightPanel.add(backBtn);
 
-        this.setResizable(true);
+        this.setResizable(false);
         this.add(leftPanel);
         this.add(rightPanel);
     }

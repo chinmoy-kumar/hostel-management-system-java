@@ -5,8 +5,8 @@ public class Start
 {
 	public static void main(String[] args)
 	{
-
-		BookingForm b1 = new BookingForm("demo");
-		b1.setVisible(true);
+		SignIn s1 = new SignIn();
+		s1.setVisible(true);
+		
 	}	
 }
