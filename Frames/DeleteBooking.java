@@ -71,7 +71,15 @@ public class DeleteBooking extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == deleteBtn) {
-
+            String bookingNum = bookingNumberFld.getText().trim();
+            if(bookingNum.isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter a booking number.");
+            }
+            else
+            {
+                deleteBooking db = new deleteBooking(bookingNum);
+            }
         }
         if (ae.getSource() == backBtn) {
             this.setVisible(false);
